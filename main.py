@@ -17,6 +17,10 @@ ENTRY = LINE_1 + "\n" + LINE_2
 
 
 def main():
+    # Self-check the gate before writing: exactly two lines, 1-400 chars.
+    lines = ENTRY.split("\n")
+    assert len(lines) == 2, "entry must be exactly two lines"
+    assert 1 <= len(ENTRY) <= 400, "entry must be 1-400 characters"
     out_dir = "/output"
     os.makedirs(out_dir, exist_ok=True)
     target = os.path.join(out_dir, "entry.txt")
